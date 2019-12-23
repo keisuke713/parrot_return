@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'line/bot'
+require 'byebug'
 
 # テスト用なのでベタ書き
 # 本番環境じゃちゃんと env とかしてね
@@ -29,6 +30,7 @@ post '/callback' do
     when Line::Bot::Event::Message
       case event.type
       when Line::Bot::Event::MessageType::Text
+        byebug
         message = {
           type: 'text',
           text: 'やっぱ俺って天才'
